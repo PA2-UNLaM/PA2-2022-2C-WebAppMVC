@@ -23,6 +23,26 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/repo/netcore/PA2-2022-2C-WebAppMVC/PA2-2022-2C-WebAppMVC/Views/Localidades/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9jYWxpZGFkZXNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/repo/netcore/PA2-2022-2C-WebAppMVC/PA2-2022-2C-WebAppMVC/Views/Localidades/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9jYWxpZGFkZXNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/repo/netcore/PA2-2022-2C-WebAppMVC/PA2-2022-2C-WebAppMVC/Views/Localidades/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9jYWxpZGFkZXNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/repo/netcore/PA2-2022-2C-WebAppMVC/PA2-2022-2C-WebAppMVC/Views/Localidades/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9jYWxpZGFkZXNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/repo/netcore/PA2-2022-2C-WebAppMVC/PA2-2022-2C-WebAppMVC/Views/Localidades/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9jYWxpZGFkZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/repo/netcore/PA2-2022-2C-WebAppMVC/PA2-2022-2C-WebAppMVC/Views/Provincias/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvdmluY2lhc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

@@ -15,5 +15,7 @@ namespace PA2_2022_2C_WebAppMVC.Data
         }
 
         public DbSet<PA2_2022_2C_WebAppMVC.Models.Provincias> Provincias { get; set; } = default!;
+
+        public DbSet<PA2_2022_2C_WebAppMVC.Models.Localidades> Localidades { get; set; }
     }
 }

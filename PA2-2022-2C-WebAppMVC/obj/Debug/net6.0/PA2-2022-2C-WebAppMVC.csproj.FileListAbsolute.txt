@@ -11,7 +11,6 @@ C:\repo\netcore\PA2-2022-2C-WebAppMVC\PA2-2022-2C-WebAppMVC\bin\Debug\net6.0\Mes
 C:\repo\netcore\PA2-2022-2C-WebAppMVC\PA2-2022-2C-WebAppMVC\bin\Debug\net6.0\MessagePack.Annotations.dll
 C:\repo\netcore\PA2-2022-2C-WebAppMVC\PA2-2022-2C-WebAppMVC\bin\Debug\net6.0\Microsoft.AspNetCore.Razor.Language.dll
 C:\repo\netcore\PA2-2022-2C-WebAppMVC\PA2-2022-2C-WebAppMVC\bin\Debug\net6.0\Microsoft.Bcl.AsyncInterfaces.dll
-C:\repo\netcore\PA2-2022-2C-WebAppMVC\PA2-2022-2C-WebAppMVC\bin\Debug\net6.0\Microsoft.Build.Locator.dll
 C:\repo\netcore\PA2-2022-2C-WebAppMVC\PA2-2022-2C-WebAppMVC\bin\Debug\net6.0\Microsoft.CodeAnalysis.AnalyzerUtilities.dll
 C:\repo\netcore\PA2-2022-2C-WebAppMVC\PA2-2022-2C-WebAppMVC\bin\Debug\net6.0\Microsoft.CodeAnalysis.dll
 C:\repo\netcore\PA2-2022-2C-WebAppMVC\PA2-2022-2C-WebAppMVC\bin\Debug\net6.0\Microsoft.CodeAnalysis.CSharp.dll
@@ -259,3 +258,6 @@ C:\repo\netcore\PA2-2022-2C-WebAppMVC\PA2-2022-2C-WebAppMVC\obj\Debug\net6.0\ref
 C:\repo\netcore\PA2-2022-2C-WebAppMVC\PA2-2022-2C-WebAppMVC\obj\Debug\net6.0\PA2-2022-2C-WebAppMVC.pdb
 C:\repo\netcore\PA2-2022-2C-WebAppMVC\PA2-2022-2C-WebAppMVC\obj\Debug\net6.0\PA2-2022-2C-WebAppMVC.genruntimeconfig.cache
 C:\repo\netcore\PA2-2022-2C-WebAppMVC\PA2-2022-2C-WebAppMVC\obj\Debug\net6.0\ref\PA2-2022-2C-WebAppMVC.dll
+C:\repo\netcore\PA2-2022-2C-WebAppMVC\PA2-2022-2C-WebAppMVC\bin\Debug\net6.0\Microsoft.Build.dll
+C:\repo\netcore\PA2-2022-2C-WebAppMVC\PA2-2022-2C-WebAppMVC\bin\Debug\net6.0\Microsoft.Build.Framework.dll
+C:\repo\netcore\PA2-2022-2C-WebAppMVC\PA2-2022-2C-WebAppMVC\bin\Debug\net6.0\Microsoft.NET.StringTools.dll

@@ -1,0 +1,42 @@
+﻿@model PA2_2022_2C_WebAppMVC.Models.Localidades
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Localidades</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Provincia)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Provincia)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NomLoc)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NomLoc)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Ciudad)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Ciudad)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NomCiudad)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NomCiudad)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Localidad">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

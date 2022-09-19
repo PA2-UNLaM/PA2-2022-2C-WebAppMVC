@@ -8,89 +8,87 @@ using Microsoft.EntityFrameworkCore;
 using PA2_2022_2C_WebAppMVC.Data;
 using PA2_2022_2C_WebAppMVC.Models;
 
-namespace PA2_2022_2C_WebAppMVC
+namespace PA2_2022_2C_WebAppMVC.Controllers
 {
-    public class ProvinciasController : Controller
+    public class LocalidadesController : Controller
     {
         private readonly PA2_2022_2C_WebAppMVCContext _context;
 
-        public ProvinciasController(PA2_2022_2C_WebAppMVCContext context)
+        public LocalidadesController(PA2_2022_2C_WebAppMVCContext context)
         {
             _context = context;
         }
 
-        // GET: Provincias
+        // GET: Localidades
         public async Task<IActionResult> Index()
         {
-              return _context.Provincias != null ? 
-                          View(await _context.Provincias.ToListAsync()) :
-                          Problem("Entity set 'PA2_2022_2C_WebAppMVCContext.Provincias'  is null.");
+              return View(await _context.Localidades.ToListAsync());
         }
 
-        // GET: Provincias/Details/5
+        // GET: Localidades/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Provincias == null)
+            if (id == null || _context.Localidades == null)
             {
                 return NotFound();
             }
 
-            var provincias = await _context.Provincias
-                .FirstOrDefaultAsync(m => m.Provincia == id);
-            if (provincias == null)
+            var localidades = await _context.Localidades
+                .FirstOrDefaultAsync(m => m.Localidad == id);
+            if (localidades == null)
             {
                 return NotFound();
             }
 
-            return View(provincias);
+            return View(localidades);
         }
 
-        // GET: Provincias/Create
+        // GET: Localidades/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Provincias/Create
+        // POST: Localidades/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Provincia,NomProvincia")] Provincias provincias)
+        public async Task<IActionResult> Create([Bind("Provincia,Localidad,NomLoc,Ciudad,NomCiudad")] Localidades localidades)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(provincias);
+                _context.Add(localidades);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(provincias);
+            return View(localidades);
         }
 
-        // GET: Provincias/Edit/5
+        // GET: Localidades/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Provincias == null)
+            if (id == null || _context.Localidades == null)
             {
                 return NotFound();
             }
 
-            var provincias = await _context.Provincias.FindAsync(id);
-            if (provincias == null)
+            var localidades = await _context.Localidades.FindAsync(id);
+            if (localidades == null)
             {
                 return NotFound();
             }
-            return View(provincias);
+            return View(localidades);
         }
 
-        // POST: Provincias/Edit/5
+        // POST: Localidades/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Provincia,NomProvincia")] Provincias provincias)
+        public async Task<IActionResult> Edit(int id, [Bind("Provincia,Localidad,NomLoc,Ciudad,NomCiudad")] Localidades localidades)
         {
-            if (id != provincias.Provincia)
+            if (id != localidades.Localidad)
             {
                 return NotFound();
             }
@@ -99,12 +97,12 @@ namespace PA2_2022_2C_WebAppMVC
             {
                 try
                 {
-                    _context.Update(provincias);
+                    _context.Update(localidades);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ProvinciasExists(provincias.Provincia))
+                    if (!LocalidadesExists(localidades.Localidad))
                     {
                         return NotFound();
                     }
@@ -115,49 +113,49 @@ namespace PA2_2022_2C_WebAppMVC
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(provincias);
+            return View(localidades);
         }
 
-        // GET: Provincias/Delete/5
+        // GET: Localidades/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Provincias == null)
+            if (id == null || _context.Localidades == null)
             {
                 return NotFound();
             }
 
-            var provincias = await _context.Provincias
-                .FirstOrDefaultAsync(m => m.Provincia == id);
-            if (provincias == null)
+            var localidades = await _context.Localidades
+                .FirstOrDefaultAsync(m => m.Localidad == id);
+            if (localidades == null)
             {
                 return NotFound();
             }
 
-            return View(provincias);
+            return View(localidades);
         }
 
-        // POST: Provincias/Delete/5
+        // POST: Localidades/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Provincias == null)
+            if (_context.Localidades == null)
             {
-                return Problem("Entity set 'PA2_2022_2C_WebAppMVCContext.Provincias'  is null.");
+                return Problem("Entity set 'PA2_2022_2C_WebAppMVCContext.Localidades'  is null.");
             }
-            var provincias = await _context.Provincias.FindAsync(id);
-            if (provincias != null)
+            var localidades = await _context.Localidades.FindAsync(id);
+            if (localidades != null)
             {
-                _context.Provincias.Remove(provincias);
+                _context.Localidades.Remove(localidades);
             }
             
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool ProvinciasExists(int id)
+        private bool LocalidadesExists(int id)
         {
-          return (_context.Provincias?.Any(e => e.Provincia == id)).GetValueOrDefault();
+          return _context.Localidades.Any(e => e.Localidad == id);
         }
     }
 }
