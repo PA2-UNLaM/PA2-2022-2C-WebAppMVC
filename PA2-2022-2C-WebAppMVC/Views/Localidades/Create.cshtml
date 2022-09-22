@@ -14,8 +14,9 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Provincia" class="control-label"></label>
-                <input asp-for="Provincia" class="form-control" />
-                <span asp-validation-for="Provincia" class="text-danger"></span>
+                <select asp-for="Provincia" class="form-control" asp-items="ViewBag.Provincia">
+                    <option value="">Seleccione una provincia</option>
+                </select>
             </div>
             <div class="form-group">
                 <label asp-for="NomLoc" class="control-label"></label>

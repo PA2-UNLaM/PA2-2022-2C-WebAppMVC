@@ -2,8 +2,11 @@
 using Microsoft.Extensions.DependencyInjection;
 using PA2_2022_2C_WebAppMVC.Data;
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddDbContext<PA2_2022_2C_WebAppMVCContext>(options =>
+builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("PA2_2022_2C_WebAppMVCContext") ?? throw new InvalidOperationException("Connection string 'PA2_2022_2C_WebAppMVCContext' not found.")));
+
+// Agregamos IProvincias al scope
+builder.Services.AddScoped<IProvinciasRepository, EFProvinciasRepository>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
