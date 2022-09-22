@@ -10,86 +10,95 @@ using PA2_2022_2C_WebAppMVC.Models;
 
 namespace PA2_2022_2C_WebAppMVC.Controllers
 {
-    public class Localidades : Controller
+    public class CotizarViajeController : Controller
     {
         private readonly AppDbContext _context;
+        private readonly IProvinciasRepository _repository;
 
-        public Localidades(AppDbContext context)
+
+        public CotizarViajeController(AppDbContext context, IProvinciasRepository repository)
         {
             _context = context;
+            _repository = repository;
         }
 
-        // GET: Localidades
+        // GET: CotizarViaje
         public async Task<IActionResult> Index()
         {
-              return View(await _context.Localidades.ToListAsync());
+              return View(await _context.Viajes.ToListAsync());
         }
 
-        // GET: Localidades/Details/5
+        // GET: CotizarViaje/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Localidades == null)
+            if (id == null || _context.Viajes == null)
             {
                 return NotFound();
             }
 
-            var localidades = await _context.Localidades
-                .FirstOrDefaultAsync(m => m.Localidad == id);
-            if (localidades == null)
+            var viajes = await _context.Viajes
+                .FirstOrDefaultAsync(m => m.IdServicio == id);
+            if (viajes == null)
             {
                 return NotFound();
             }
 
-            return View(localidades);
+            return View(viajes);
         }
 
-        // GET: Localidades/Create
-        public IActionResult Create()
+        // GET: CotizarViaje/Create
+        public async Task<IActionResult> CreateAsync()
         {
-            ViewData["Provincia"] = new SelectList(_context.Provincias, "Provincia", "NomProvincia");
+            var provinciasList = await _repository.ToListAsync();
+            ViewData["ProvinciaOrigen"] = new SelectList(provinciasList, "Provincia", "NomProvincia");
+
             return View();
         }
 
-        // POST: Localidades/Create
+        // POST: CotizarViaje/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Provincia,Localidad,NomLoc,Ciudad,NomCiudad")] Models.Localidades localidades)
+        public async Task<IActionResult> Create([Bind("Cliente,IdServicio,Vehiculo,Origen,Destino,Km,CantViajes")] Viajes viajes)
         {
+            if (!ModelState.IsValid)
+            {
+                return View(viajes);
+            }
             if (ModelState.IsValid)
             {
-                _context.Add(localidades);
+                _context.Add(viajes);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(localidades);
+            return View(viajes);
         }
 
-        // GET: Localidades/Edit/5
+        // GET: CotizarViaje/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Localidades == null)
+            if (id == null || _context.Viajes == null)
             {
                 return NotFound();
             }
 
-            var localidades = await _context.Localidades.FindAsync(id);
-            if (localidades == null)
+            var viajes = await _context.Viajes.FindAsync(id);
+            if (viajes == null)
             {
                 return NotFound();
             }
-            return View(localidades);
+            return View(viajes);
         }
 
-        // POST: Localidades/Edit/5
+        // POST: CotizarViaje/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Provincia,Localidad,NomLoc,Ciudad,NomCiudad")] Models.Localidades localidades)
+        public async Task<IActionResult> Edit(int id, [Bind("Fecha,Cliente,IdServicio,Vehiculo,Origen,Destino,Km,CantViajes")] Viajes viajes)
         {
-            if (id != localidades.Localidad)
+            if (id != viajes.IdServicio)
             {
                 return NotFound();
             }
@@ -98,12 +107,12 @@ namespace PA2_2022_2C_WebAppMVC.Controllers
             {
                 try
                 {
-                    _context.Update(localidades);
+                    _context.Update(viajes);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!LocalidadesExists(localidades.Localidad))
+                    if (!ViajesExists(viajes.IdServicio))
                     {
                         return NotFound();
                     }
@@ -114,49 +123,49 @@ namespace PA2_2022_2C_WebAppMVC.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(localidades);
+            return View(viajes);
         }
 
-        // GET: Localidades/Delete/5
+        // GET: CotizarViaje/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Localidades == null)
+            if (id == null || _context.Viajes == null)
             {
                 return NotFound();
             }
 
-            var localidades = await _context.Localidades
-                .FirstOrDefaultAsync(m => m.Localidad == id);
-            if (localidades == null)
+            var viajes = await _context.Viajes
+                .FirstOrDefaultAsync(m => m.IdServicio == id);
+            if (viajes == null)
             {
                 return NotFound();
             }
 
-            return View(localidades);
+            return View(viajes);
         }
 
-        // POST: Localidades/Delete/5
+        // POST: CotizarViaje/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Localidades == null)
+            if (_context.Viajes == null)
             {
-                return Problem("Entity set 'PA2_2022_2C_WebAppMVCContext.Localidades'  is null.");
+                return Problem("Entity set 'AppDbContext.Viajes'  is null.");
             }
-            var localidades = await _context.Localidades.FindAsync(id);
-            if (localidades != null)
+            var viajes = await _context.Viajes.FindAsync(id);
+            if (viajes != null)
             {
-                _context.Localidades.Remove(localidades);
+                _context.Viajes.Remove(viajes);
             }
             
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool LocalidadesExists(int id)
+        private bool ViajesExists(int id)
         {
-          return _context.Localidades.Any(e => e.Localidad == id);
+          return _context.Viajes.Any(e => e.IdServicio == id);
         }
     }
 }

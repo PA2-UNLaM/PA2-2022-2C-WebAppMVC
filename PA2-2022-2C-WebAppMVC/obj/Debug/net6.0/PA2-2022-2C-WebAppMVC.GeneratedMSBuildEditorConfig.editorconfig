@@ -15,6 +15,26 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\repo\netcore\PA2-2022-2C-WebAppMVC\PA2-2022-2C-WebAppMVC
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/repo/netcore/PA2-2022-2C-WebAppMVC/PA2-2022-2C-WebAppMVC/Views/CotizarViaje/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ290aXphclZpYWplXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/repo/netcore/PA2-2022-2C-WebAppMVC/PA2-2022-2C-WebAppMVC/Views/CotizarViaje/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ290aXphclZpYWplXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/repo/netcore/PA2-2022-2C-WebAppMVC/PA2-2022-2C-WebAppMVC/Views/CotizarViaje/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ290aXphclZpYWplXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/repo/netcore/PA2-2022-2C-WebAppMVC/PA2-2022-2C-WebAppMVC/Views/CotizarViaje/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ290aXphclZpYWplXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/repo/netcore/PA2-2022-2C-WebAppMVC/PA2-2022-2C-WebAppMVC/Views/CotizarViaje/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ290aXphclZpYWplXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/repo/netcore/PA2-2022-2C-WebAppMVC/PA2-2022-2C-WebAppMVC/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

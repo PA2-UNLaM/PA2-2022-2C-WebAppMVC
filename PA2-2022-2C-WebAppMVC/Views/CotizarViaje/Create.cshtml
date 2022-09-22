@@ -1,0 +1,65 @@
+﻿@model PA2_2022_2C_WebAppMVC.Models.Viajes
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Viajes</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Origen" class="control-label"></label>
+                <select asp-for="Origen" class="form-control" asp-items="ViewBag.ProvinciaOrigen">
+                    <option value="">Seleccione una provincia</option>
+                </select>
+                <span asp-validation-for="Origen" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cliente" class="control-label"></label>
+                <input asp-for="Cliente" class="form-control" />
+                <span asp-validation-for="Cliente" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Vehiculo" class="control-label"></label>
+                <input asp-for="Vehiculo" class="form-control" />
+                <span asp-validation-for="Vehiculo" class="text-danger"></span>
+            </div>
+@*            <div class="form-group">
+                <label asp-for="Origen" class="control-label"></label>
+                <input asp-for="Origen" class="form-control" />
+                <span asp-validation-for="Origen" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <label asp-for="Destino" class="control-label"></label>
+                <input asp-for="Destino" class="form-control" />
+                <span asp-validation-for="Destino" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Km" class="control-label"></label>
+                <input asp-for="Km" class="form-control" />
+                <span asp-validation-for="Km" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CantViajes" class="control-label"></label>
+                <input asp-for="CantViajes" class="form-control" />
+                <span asp-validation-for="CantViajes" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
