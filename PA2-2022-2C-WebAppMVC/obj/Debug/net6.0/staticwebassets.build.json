@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "F7w6iZYwNnHkw9hg602TNx9miySNqxoauRStbPzU+Bk=",
+  "Hash": "dloo6PiNrdTlApjijV7ySZfLZy5uRd7NE1hY9PIA1w8=",
   "Source": "PA2-2022-2C-WebAppMVC",
   "BasePath": "_content/PA2-2022-2C-WebAppMVC",
   "Mode": "Default",
@@ -83,6 +83,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\repo\\netcore\\PA2-2022-2C-WebAppMVC\\PA2-2022-2C-WebAppMVC\\wwwroot\\images\\Icon.PNG",
+      "SourceId": "PA2-2022-2C-WebAppMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\repo\\netcore\\PA2-2022-2C-WebAppMVC\\PA2-2022-2C-WebAppMVC\\wwwroot\\",
+      "BasePath": "_content/PA2-2022-2C-WebAppMVC",
+      "RelativePath": "images/Icon.PNG",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\Icon.PNG"
     },
     {
       "Identity": "C:\\repo\\netcore\\PA2-2022-2C-WebAppMVC\\PA2-2022-2C-WebAppMVC\\wwwroot\\js\\site.js",
