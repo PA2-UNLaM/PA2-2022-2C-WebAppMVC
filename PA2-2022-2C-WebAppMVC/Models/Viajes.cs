@@ -6,6 +6,7 @@ namespace PA2_2022_2C_WebAppMVC.Models
     {
         public DateTime Fecha { get; set; } = DateTime.Now;
         [Required(ErrorMessage = "Cliente is required.")]
+
         public int Cliente { get; set; }
         [Key]
         public int IdServicio { get; set; }
