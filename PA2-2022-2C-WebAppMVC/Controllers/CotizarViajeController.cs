@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -54,25 +55,41 @@ namespace PA2_2022_2C_WebAppMVC.Controllers
 
             return View();
         }
+    
 
         // POST: CotizarViaje/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Cliente,IdServicio,Vehiculo,Origen,Destino,Km,CantViajes")] Viajes viajes)
+        public async Task<IActionResult> Create([Bind("Cliente,IdServicio,Vehiculo,Origen,Destino,Km,CantViajes,ProvinciaOrigen")] Viajes viajes)
         {
-            if (!ModelState.IsValid)
-            {
-                return View(viajes);
-            }
+
             if (ModelState.IsValid)
             {
-                _context.Add(viajes);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+
+
+                var listaLocalidadOrigen = await _context.Localidades.Where(p => p.Provincia == viajes.ProvinciaOrigen).ToListAsync();
+                if (listaLocalidadOrigen == null)
+                {
+                    return NotFound();
+                }
+
+ //               ViewBag.Localidades = new SelectList(listaLocalidadOrigen, "Localidad", "NomLoc");
+                ViewData["Origen"] = new SelectList(listaLocalidadOrigen, "Localidad", "NomLoc");
+
+                //["LocalidadOrigen"] 
+                // return View();
+
+                //Add(viajes);
+                //await _context.SaveChangesAsync();
+                //return RedirectToAction(nameof(SetLocalidadOrigen));
             }
-            return View(viajes);
+            //  return RedirectToAction("SetLocalidadOrigen");
+
+            
+            HttpContext.Session.SetString("SessionKeyName", "SessionKeyNameTest");
+            return View("SetLocalidadOrigen");
         }
 
         // GET: CotizarViaje/Edit/5
@@ -166,6 +183,69 @@ namespace PA2_2022_2C_WebAppMVC.Controllers
         private bool ViajesExists(int id)
         {
           return _context.Viajes.Any(e => e.IdServicio == id);
+        }
+
+        // GET: CotizarViaje/Step1_ProvinciaOrigen
+        public async Task<IActionResult> Step1_ProvinciaOrigen()
+        {
+            var provinciasList = await _repository.ToListAsync();
+            ViewData["ProvinciaOrigen"] = new SelectList(provinciasList, "Provincia", "NomProvincia");
+
+            return View();
+        }
+
+        // POST: CotizarViaje/Step1_ProvinciaOrigen
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Step1_ProvinciaOrigen([Bind("Cliente,IdServicio,Vehiculo,Origen,Destino,Km,CantViajes,ProvinciaOrigen")] Viajes viajes)
+        {
+            if (ModelState.IsValid)
+            {
+                // Busco las localidades registradas de la provincia seleccionada    
+                var listaLocalidadOrigen = await _context.Localidades.Where(p => p.Provincia == viajes.ProvinciaOrigen).ToListAsync();
+                if (listaLocalidadOrigen == null)
+                {
+                    return NotFound();
+                }
+
+                ViewData["Origen"] = new SelectList(listaLocalidadOrigen, "Localidad", "NomLoc");
+
+            }
+
+            List<Provincias> provinciaOrigen = await _context.Provincias.Where(p => p.Provincia == viajes.ProvinciaOrigen).ToListAsync();
+
+            HttpContext.Session.SetInt32(Viajes.SessionProvinciaOrigen, viajes.ProvinciaOrigen);
+            HttpContext.Session.SetString(Viajes.SessionNomProvinciaOrigen, provinciaOrigen[0].NomProvincia);
+            return View("Step2_LocalidadOrigen");
+        }
+
+        // POST: CotizarViaje/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Step2_LocalidadOrigen([Bind("Cliente,IdServicio,Vehiculo,Origen,Destino,Km,CantViajes,ProvinciaOrigen")] Viajes viajes)
+        {
+
+            if (ModelState.IsValid)
+            {
+                var provinciaOrigen = HttpContext.Session.GetInt32(Viajes.SessionProvinciaOrigen);
+                var nomProvinciaOrigen = HttpContext.Session.GetString(Viajes.SessionNomProvinciaOrigen);
+
+                var listaLocalidadOrigen = await _context.Provincias.Where(p => p.Provincia == viajes.ProvinciaOrigen).ToListAsync();
+                if (listaLocalidadOrigen == null)
+                {
+                    return NotFound();
+                }
+
+                ViewData["LocalidadOrigen"] = new SelectList(listaLocalidadOrigen, "Localidad", "NomLocalidad");
+
+                return View();
+
+            }
+            return View(viajes);
         }
     }
 }

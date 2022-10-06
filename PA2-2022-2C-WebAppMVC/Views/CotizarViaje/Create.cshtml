@@ -13,13 +13,13 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Origen" class="control-label"></label>
-                <select asp-for="Origen" class="form-control" asp-items="ViewBag.ProvinciaOrigen">
+                <label asp-for="ProvinciaOrigen" class="control-label"></label>
+                <select asp-for="ProvinciaOrigen" class="form-control" asp-items="ViewBag.ProvinciaOrigen">
                     <option value="">Seleccione una provincia</option>
                 </select>
-                <span asp-validation-for="Origen" class="text-danger"></span>
+                <span asp-validation-for="ProvinciaOrigen" class="text-danger"></span>
             </div>
-            <div class="form-group">
+           @* <div class="form-group">
                 <label asp-for="Cliente" class="control-label"></label>
                 <input asp-for="Cliente" class="form-control" />
                 <span asp-validation-for="Cliente" class="text-danger"></span>
@@ -29,11 +29,11 @@
                 <input asp-for="Vehiculo" class="form-control" />
                 <span asp-validation-for="Vehiculo" class="text-danger"></span>
             </div>
-@*            <div class="form-group">
+            <div class="form-group">
                 <label asp-for="Origen" class="control-label"></label>
                 <input asp-for="Origen" class="form-control" />
                 <span asp-validation-for="Origen" class="text-danger"></span>
-            </div>*@
+            </div>
             <div class="form-group">
                 <label asp-for="Destino" class="control-label"></label>
                 <input asp-for="Destino" class="form-control" />
@@ -48,9 +48,9 @@
                 <label asp-for="CantViajes" class="control-label"></label>
                 <input asp-for="CantViajes" class="form-control" />
                 <span asp-validation-for="CantViajes" class="text-danger"></span>
-            </div>
+            </div>*@
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="SetLocalidadOrigen" class="btn btn-primary" />
             </div>
         </form>
     </div>

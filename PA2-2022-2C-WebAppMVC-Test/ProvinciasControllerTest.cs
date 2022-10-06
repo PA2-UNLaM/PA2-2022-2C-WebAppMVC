@@ -8,30 +8,30 @@ namespace PA2_2022_2C_WebAppMVC_Test
 {
     public class ProvinciasControllerTest
     {
-        [Fact]
-        public async Task Index_ReturnsAViewResult_WithAListOfProvinciasAsync()
-        {
-            // Arrange
-            var mockRepo = new Mock<IProvinciasRepository>();
-            mockRepo.Setup(repo => repo.ToListAsync())
-                .ReturnsAsync(GetTestProvincias());
-            var controller = new ProvinciasController(mockRepo.Object);
+        //[Fact]
+        //public async Task Index_ReturnsAViewResult_WithAListOfProvinciasAsync()
+        //{
+        //    // Arrange
+        //    var mockRepo = new Mock<IProvinciasRepository>();
+        //    mockRepo.Setup(repo => repo.ToListAsync())
+        //        .ReturnsAsync(GetTestProvincias());
+        //    var controller = new ProvinciasController(mockRepo.Object);
 
-            // Act
-            var result = await controller.Index();
+        //    // Act
+        //    var result = await controller.Index();
 
-            // Assert
-            var viewResult = Assert.IsType<ViewResult>(result);
-            var model = Assert.IsAssignableFrom<IEnumerable<Provincias>>(
-                viewResult.ViewData.Model);
-            //var contentResult = Assert.IsType<ContentResult>(result);
-            var model1 = Assert.IsType<List<Provincias>>(
-            viewResult.ViewData.Model);
-            Assert.Equal("Bs As", model1[0].NomProvincia);
-            Assert.Equal(2, model.Count());
+        //    // Assert
+        //    var viewResult = Assert.IsType<ViewResult>(result);
+        //    var model = Assert.IsAssignableFrom<IEnumerable<Provincias>>(
+        //        viewResult.ViewData.Model);
+        //    //var contentResult = Assert.IsType<ContentResult>(result);
+        //    var model1 = Assert.IsType<List<Provincias>>(
+        //    viewResult.ViewData.Model);
+        //    Assert.Equal("Bs As", model1[0].NomProvincia);
+        //    Assert.Equal(2, model.Count());
 
-            //model.ToList() 
-        }
+        //    //model.ToList() 
+        //}
 
         private List<Provincias> GetTestProvincias()
         {

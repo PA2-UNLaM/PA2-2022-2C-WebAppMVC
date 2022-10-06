@@ -35,6 +35,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ290aXphclZpYWplXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/repo/netcore/PA2-2022-2C-WebAppMVC/PA2-2022-2C-WebAppMVC/Views/CotizarViaje/Step1_ProvinciaOrigen.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ290aXphclZpYWplXFN0ZXAxX1Byb3ZpbmNpYU9yaWdlbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/repo/netcore/PA2-2022-2C-WebAppMVC/PA2-2022-2C-WebAppMVC/Views/CotizarViaje/Step2_LocalidadOrigen.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ290aXphclZpYWplXFN0ZXAyX0xvY2FsaWRhZE9yaWdlbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/repo/netcore/PA2-2022-2C-WebAppMVC/PA2-2022-2C-WebAppMVC/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

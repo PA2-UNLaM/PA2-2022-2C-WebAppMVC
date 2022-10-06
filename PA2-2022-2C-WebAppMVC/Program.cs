@@ -11,6 +11,18 @@ builder.Services.AddScoped<IProvinciasRepository, EFProvinciasRepository>();
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+// agregamos config de session
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddHttpContextAccessor();
+
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromSeconds(10);
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+    options.Cookie.Name = "PA2_Cookie";
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -27,6 +39,8 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+
+app.UseSession();
 
 app.MapControllerRoute(
     name: "default",
