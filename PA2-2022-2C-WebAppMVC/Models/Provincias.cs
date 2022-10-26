@@ -7,5 +7,6 @@ namespace PA2_2022_2C_WebAppMVC.Models
         [Key]
         public int Provincia { get; set; }
         public string? NomProvincia { get; set; }
-    }
+
+     }
 }

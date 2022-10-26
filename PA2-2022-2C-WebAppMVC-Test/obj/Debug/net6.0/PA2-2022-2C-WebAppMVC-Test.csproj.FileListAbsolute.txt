@@ -341,3 +341,7 @@ C:\repo\netcore\PA2-2022-2C-WebAppMVC\PA2-2022-2C-WebAppMVC-Test\bin\Debug\net6.
 C:\repo\netcore\PA2-2022-2C-WebAppMVC\PA2-2022-2C-WebAppMVC-Test\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 C:\repo\netcore\PA2-2022-2C-WebAppMVC\PA2-2022-2C-WebAppMVC-Test\bin\Debug\net6.0\PA2-2022-2C-WebAppMVC.dll
 C:\repo\netcore\PA2-2022-2C-WebAppMVC\PA2-2022-2C-WebAppMVC-Test\bin\Debug\net6.0\PA2-2022-2C-WebAppMVC.pdb
+C:\repo\netcore\PA2-2022-2C-WebAppMVC\PA2-2022-2C-WebAppMVC-Test\bin\Debug\net6.0\Microsoft.OpenApi.dll
+C:\repo\netcore\PA2-2022-2C-WebAppMVC\PA2-2022-2C-WebAppMVC-Test\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\repo\netcore\PA2-2022-2C-WebAppMVC\PA2-2022-2C-WebAppMVC-Test\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\repo\netcore\PA2-2022-2C-WebAppMVC\PA2-2022-2C-WebAppMVC-Test\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll

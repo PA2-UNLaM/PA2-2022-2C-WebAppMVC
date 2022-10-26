@@ -15,12 +15,14 @@ namespace PA2_2022_2C_WebAppMVC.Controllers
     {
         private readonly AppDbContext _context;
         private readonly IProvinciasRepository _repository;
+        private readonly ILogger<ProvinciasController> _logger;
 
 
-        public CotizarViajeController(AppDbContext context, IProvinciasRepository repository)
+        public CotizarViajeController(AppDbContext context, IProvinciasRepository repository, ILogger<ProvinciasController> logger)
         {
             _context = context;
             _repository = repository;
+            _logger = logger;
         }
 
         // GET: CotizarViaje
@@ -48,14 +50,11 @@ namespace PA2_2022_2C_WebAppMVC.Controllers
         }
 
         // GET: CotizarViaje/Create
-        public async Task<IActionResult> CreateAsync()
+        public IActionResult CreateAsync()
         {
-            var provinciasList = await _repository.ToListAsync();
-            ViewData["ProvinciaOrigen"] = new SelectList(provinciasList, "Provincia", "NomProvincia");
-
             return View();
         }
-    
+
 
         // POST: CotizarViaje/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
@@ -67,29 +66,11 @@ namespace PA2_2022_2C_WebAppMVC.Controllers
 
             if (ModelState.IsValid)
             {
-
-
-                var listaLocalidadOrigen = await _context.Localidades.Where(p => p.Provincia == viajes.ProvinciaOrigen).ToListAsync();
-                if (listaLocalidadOrigen == null)
-                {
-                    return NotFound();
-                }
-
- //               ViewBag.Localidades = new SelectList(listaLocalidadOrigen, "Localidad", "NomLoc");
-                ViewData["Origen"] = new SelectList(listaLocalidadOrigen, "Localidad", "NomLoc");
-
-                //["LocalidadOrigen"] 
-                // return View();
-
-                //Add(viajes);
-                //await _context.SaveChangesAsync();
-                //return RedirectToAction(nameof(SetLocalidadOrigen));
+                _context.Add(viajes);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
             }
-            //  return RedirectToAction("SetLocalidadOrigen");
-
-            
-            HttpContext.Session.SetString("SessionKeyName", "SessionKeyNameTest");
-            return View("SetLocalidadOrigen");
+            return View(viajes);
         }
 
         // GET: CotizarViaje/Edit/5
@@ -188,9 +169,20 @@ namespace PA2_2022_2C_WebAppMVC.Controllers
         // GET: CotizarViaje/Step1_ProvinciaOrigen
         public async Task<IActionResult> Step1_ProvinciaOrigen()
         {
-            var provinciasList = await _repository.ToListAsync();
-            ViewData["ProvinciaOrigen"] = new SelectList(provinciasList, "Provincia", "NomProvincia");
+            List<Provincias> provinciasList;
+            try
+            {
+                _logger.LogInformation("Recuperando todas las Provincias de la Base de Datos");
+                provinciasList = await _context.Provincias.ToListAsync();
+                ViewData["ProvinciaOrigen"] = new SelectList(provinciasList, "Provincia", "NomProvincia");
 
+                _logger.LogInformation($"Regresando {provinciasList.Count} Provincias.");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Algo salió mal: {ex}");
+                return StatusCode(500, "Internal Server Error");
+            }
             return View();
         }
 
